@@ -1,0 +1,17 @@
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files (contain sensitive infrastructure data)
+*.tfstate
+*.tfstate.*
+
+# Variable files (contain your IP, paths, or secrets)
+*.tfvars
+*.tfvars.json
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Keys
+*.pem
