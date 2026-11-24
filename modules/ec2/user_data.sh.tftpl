@@ -1,13 +1,13 @@
 #!/bin/bash
 set -Eeuo pipefail
 
-apt-get upgrade -y nginx
-apt-get update -y nginx
+export DEBIAN_FRONTEND=noninteractive
+
+apt-get update
 apt-get install -y nginx
 
-systemctl start nginx
-systemctl enable nginx
+systemctl enable --now nginx
 
-cat << EOF > /var/www/html/index.html
+cat << 'EOF' > /var/www/html/index.html
 ${html_content}
 EOF

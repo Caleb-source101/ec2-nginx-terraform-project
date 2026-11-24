@@ -29,7 +29,7 @@ resource "aws_instance" "one" {
   user_data = templatefile("${path.module}/user_data.sh.tftpl" ,{
    html_content = file("${path.module}/index.html")
 })
-
+user_data_replace_on_change = true
   tags = {
   Name = "TF-EC2"
   }
