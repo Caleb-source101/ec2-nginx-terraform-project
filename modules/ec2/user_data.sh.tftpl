@@ -1,0 +1,13 @@
+#!/bin/bash
+set -Eeuo pipefail
+
+apt-get upgrade -y nginx
+apt-get update -y nginx
+apt-get install -y nginx
+
+systemctl start nginx
+systemctl enable nginx
+
+cat << EOF > /var/www/html/index.html
+${html_content}
+EOF

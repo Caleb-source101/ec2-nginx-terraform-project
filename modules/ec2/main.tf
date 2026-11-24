@@ -26,8 +26,12 @@ resource "aws_instance" "one" {
   vpc_security_group_ids = [var.security_group_id]
   key_name               = aws_key_pair.one.key_name
 
+  user_data = templatefile("${path.module}/user_data.sh.tftpl" ,{
+   html_content = file("${path.module}/index.html")
+})
+
   tags = {
   Name = "TF-EC2"
- }
+  }
 }
 
